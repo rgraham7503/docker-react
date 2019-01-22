@@ -1,0 +1,19 @@
+# Get image
+FROM node:alpine
+
+# Set working directory
+WORKDIR '/app'
+
+# Copy json
+COPY package.json .
+
+# Install NPM package manager
+RUN npm install
+
+# Copy rest of files from direct to image
+COPY . .
+
+# Set startup command
+CMD ["npm", "run", "start"]
+
+# run with 'docker build -f Dockerfile.dev .'
